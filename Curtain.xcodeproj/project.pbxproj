@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03AB2DA72196E73B0083EF8D /* CurtainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03AB2DA62196E73B0083EF8D /* CurtainViewController.xib */; };
 		03BD9E5C21945C2D00673E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E5B21945C2D00673E69 /* AppDelegate.swift */; };
 		03BD9E5E21945C3100673E69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E5D21945C3100673E69 /* Assets.xcassets */; };
 		03BD9E6121945C3100673E69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E5F21945C3100673E69 /* MainMenu.xib */; };
 		03BD9E6D21945C3100673E69 /* CurtainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E6C21945C3100673E69 /* CurtainTests.swift */; };
 		03BD9E7821945C3100673E69 /* CurtainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E7721945C3100673E69 /* CurtainUITests.swift */; };
+		03BD9E8621945C7500673E69 /* CurtainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E8521945C7500673E69 /* CurtainViewController.swift */; };
+		03BD9E8D21945EF400673E69 /* CURTAINS OPEN.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E8B21945EF400673E69 /* CURTAINS OPEN.wav */; };
+		03BD9E8E21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E8C21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav */; };
+		03BD9E93219474BB00673E69 /* CurtainClose640.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E91219474BA00673E69 /* CurtainClose640.gif */; };
+		03BD9E94219474BB00673E69 /* CurtainClose320.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E92219474BB00673E69 /* CurtainClose320.gif */; };
+		03BD9E97219474C500673E69 /* CurtainOpen640.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E95219474C500673E69 /* CurtainOpen640.gif */; };
+		03BD9E98219474C500673E69 /* CurtainOpen320.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E96219474C500673E69 /* CurtainOpen320.gif */; };
+		03BD9E9B2194752200673E69 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E992194752200673E69 /* MainWindowController.xib */; };
+		03BD9E9C2194752200673E69 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E9A2194752200673E69 /* MainWindowController.swift */; };
+		03BD9E9E2194A26200673E69 /* CurtainOpen640a.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03AB2DA62196E73B0083EF8D /* CurtainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurtainViewController.xib; sourceTree = "<group>"; };
 		03BD9E5821945C2D00673E69 /* Curtain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curtain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BD9E5B21945C2D00673E69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BD9E5D21945C3100673E69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +56,16 @@
 		03BD9E7321945C3100673E69 /* CurtainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurtainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BD9E7721945C3100673E69 /* CurtainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurtainUITests.swift; sourceTree = "<group>"; };
 		03BD9E7921945C3100673E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BD9E8521945C7500673E69 /* CurtainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurtainViewController.swift; sourceTree = "<group>"; };
+		03BD9E8B21945EF400673E69 /* CURTAINS OPEN.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "CURTAINS OPEN.wav"; sourceTree = "<group>"; };
+		03BD9E8C21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "CURTAINS CLOSE_OPEN.wav"; sourceTree = "<group>"; };
+		03BD9E91219474BA00673E69 /* CurtainClose640.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainClose640.gif; sourceTree = "<group>"; };
+		03BD9E92219474BB00673E69 /* CurtainClose320.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainClose320.gif; sourceTree = "<group>"; };
+		03BD9E95219474C500673E69 /* CurtainOpen640.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainOpen640.gif; sourceTree = "<group>"; };
+		03BD9E96219474C500673E69 /* CurtainOpen320.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainOpen320.gif; sourceTree = "<group>"; };
+		03BD9E992194752200673E69 /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		03BD9E9A2194752200673E69 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainOpen640a.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03AB2DA92196F50B0083EF8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03BD9E92219474BB00673E69 /* CurtainClose320.gif */,
+				03BD9E91219474BA00673E69 /* CurtainClose640.gif */,
+				03BD9E96219474C500673E69 /* CurtainOpen320.gif */,
+				03BD9E95219474C500673E69 /* CurtainOpen640.gif */,
+				03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */,
+				03BD9E8C21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav */,
+				03BD9E8B21945EF400673E69 /* CURTAINS OPEN.wav */,
+				03BD9E5D21945C3100673E69 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		03BD9E4F21945C2D00673E69 = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +131,15 @@
 		03BD9E5A21945C2D00673E69 /* Curtain */ = {
 			isa = PBXGroup;
 			children = (
+				03AB2DA92196F50B0083EF8D /* Resources */,
 				03BD9E5B21945C2D00673E69 /* AppDelegate.swift */,
-				03BD9E5D21945C3100673E69 /* Assets.xcassets */,
-				03BD9E5F21945C3100673E69 /* MainMenu.xib */,
-				03BD9E6221945C3100673E69 /* Info.plist */,
 				03BD9E6321945C3100673E69 /* Curtain.entitlements */,
+				03BD9E8521945C7500673E69 /* CurtainViewController.swift */,
+				03AB2DA62196E73B0083EF8D /* CurtainViewController.xib */,
+				03BD9E6221945C3100673E69 /* Info.plist */,
+				03BD9E5F21945C3100673E69 /* MainMenu.xib */,
+				03BD9E9A2194752200673E69 /* MainWindowController.swift */,
+				03BD9E992194752200673E69 /* MainWindowController.xib */,
 			);
 			path = Curtain;
 			sourceTree = "<group>";
@@ -225,8 +266,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BD9E9E2194A26200673E69 /* CurtainOpen640a.gif in Resources */,
+				03AB2DA72196E73B0083EF8D /* CurtainViewController.xib in Resources */,
 				03BD9E5E21945C3100673E69 /* Assets.xcassets in Resources */,
+				03BD9E9B2194752200673E69 /* MainWindowController.xib in Resources */,
+				03BD9E8D21945EF400673E69 /* CURTAINS OPEN.wav in Resources */,
+				03BD9E97219474C500673E69 /* CurtainOpen640.gif in Resources */,
+				03BD9E98219474C500673E69 /* CurtainOpen320.gif in Resources */,
+				03BD9E94219474BB00673E69 /* CurtainClose320.gif in Resources */,
+				03BD9E93219474BB00673E69 /* CurtainClose640.gif in Resources */,
 				03BD9E6121945C3100673E69 /* MainMenu.xib in Resources */,
+				03BD9E8E21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03BD9E5C21945C2D00673E69 /* AppDelegate.swift in Sources */,
+				03BD9E9C2194752200673E69 /* MainWindowController.swift in Sources */,
+				03BD9E8621945C7500673E69 /* CurtainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
