@@ -14,7 +14,7 @@ final class MainWindowController: NSWindowController {
     @IBOutlet weak var viewCurtain: NSView!
     @IBOutlet weak var myTableView:NSTableView!
 
-    var delegate:curtainDelegate?
+    var delegate:CurtainDelegate?
     var curtainViewController : CurtainViewController?
     var secondaryView : NSView!
     
@@ -36,16 +36,16 @@ final class MainWindowController: NSWindowController {
         secondaryView = curtainViewController?.view
         delegate = curtainViewController
         
-        self.myTableView.reloadData()
+//        self.myTableView.reloadData()
 
     }
     
     @IBAction func open(_ sender: Any) {
         Commun.shared.addSubview(subView: secondaryView, toView: viewCurtain )
         Commun.shared.setUpLayoutConstraints(item: secondaryView, toItem: viewCurtain)
-        delegate?.openCurtain()
+        let totalTime = delegate?.openCurtain()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + totalTime!) {
             
             self.secondaryView.removeFromSuperview()
         }
@@ -54,7 +54,7 @@ final class MainWindowController: NSWindowController {
     @IBAction func close(_ sender: Any) {
         Commun.shared.addSubview(subView: secondaryView, toView: viewCurtain )
         Commun.shared.setUpLayoutConstraints(item: secondaryView, toItem: viewCurtain)
-        delegate?.closeCurtain()
+        let _ = delegate?.closeCurtain()
     }
     
 }

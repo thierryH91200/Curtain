@@ -21,7 +21,6 @@
 		03BD9E97219474C500673E69 /* CurtainOpen640.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E95219474C500673E69 /* CurtainOpen640.gif */; };
 		03BD9E9B2194752200673E69 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E992194752200673E69 /* MainWindowController.xib */; };
 		03BD9E9C2194752200673E69 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD9E9A2194752200673E69 /* MainWindowController.swift */; };
-		03BD9E9E2194A26200673E69 /* CurtainOpen640a.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		03BD9E95219474C500673E69 /* CurtainOpen640.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainOpen640.gif; sourceTree = "<group>"; };
 		03BD9E992194752200673E69 /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		03BD9E9A2194752200673E69 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurtainOpen640a.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +94,6 @@
 			children = (
 				03BD9E91219474BA00673E69 /* CurtainClose640.gif */,
 				03BD9E95219474C500673E69 /* CurtainOpen640.gif */,
-				03BD9E9D2194A26200673E69 /* CurtainOpen640a.gif */,
 				03BD9E8C21945EF400673E69 /* CURTAINS CLOSE_OPEN.wav */,
 				03BD9E8B21945EF400673E69 /* CURTAINS OPEN.wav */,
 				03BD9E5D21945C3100673E69 /* Assets.xcassets */,
@@ -268,7 +265,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03BD9E9E2194A26200673E69 /* CurtainOpen640a.gif in Resources */,
 				03AB2DA72196E73B0083EF8D /* CurtainViewController.xib in Resources */,
 				03BD9E5E21945C3100673E69 /* Assets.xcassets in Resources */,
 				03BD9E9B2194752200673E69 /* MainWindowController.xib in Resources */,

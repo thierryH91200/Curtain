@@ -9,12 +9,12 @@
 import AppKit
 import AVFoundation
 
-protocol curtainDelegate {
-    func openCurtain()
-    func closeCurtain()
+protocol CurtainDelegate {
+    func openCurtain() -> Double
+    func closeCurtain() -> Double
 }
 
-final class CurtainViewController: NSViewController, curtainDelegate {
+final class CurtainViewController: NSViewController, CurtainDelegate {
     
     var curtainsSound : AVAudioPlayer? = nil
     var curtainsOpenSound : AVAudioPlayer? = nil
@@ -25,6 +25,8 @@ final class CurtainViewController: NSViewController, curtainDelegate {
     var animTimer : Timer?
 
     @IBOutlet weak var imageView: NSImageView!
+    @IBOutlet weak var passwordField: NSSecureTextField!
+    @IBOutlet weak var userField: NSTextField!
     
     
     override func viewDidLoad() {
@@ -39,10 +41,8 @@ final class CurtainViewController: NSViewController, curtainDelegate {
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        let darkBackgroundColor:NSColor = NSColor(red: 50.0/255.0, green: 50.0/255.0, blue: 50.0/255.0, alpha: 1.0)
-
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = darkBackgroundColor.cgColor
+        self.view.layer?.backgroundColor = NSColor.clear.cgColor
     }
     
     /*Add Bottle On Counter Sound*/
@@ -70,16 +70,21 @@ final class CurtainViewController: NSViewController, curtainDelegate {
         }
     }
     
-    func openCurtain() {
+    func openCurtain() -> Double {
         
         readGifDataAndConfigImageView(name: "CurtainOpen640.gif")
         timer()
+        return playTotalTime
     }
     
-    func closeCurtain() {
+    func closeCurtain() -> Double {
         
+        passwordField.stringValue = ""
+        userField.stringValue = ""
+
         readGifDataAndConfigImageView(name: "CurtainClose640.gif")
         timer()
+        return playTotalTime
     }
     
     func readGifDataAndConfigImageView(name: String) {

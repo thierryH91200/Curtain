@@ -8,6 +8,8 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CurtainViewController" customModule="Curtain" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="ksx-e6-b99" id="ZrP-wk-KsG"/>
+                <outlet property="passwordField" destination="LhJ-hh-Q7o" id="ITg-V1-53r"/>
+                <outlet property="userField" destination="xf0-cs-pfz" id="teT-Jc-3JA"/>
                 <outlet property="view" destination="c22-O7-iKe" id="8nG-UA-5PZ"/>
             </connections>
         </customObject>
@@ -22,10 +24,10 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" imageFrameStyle="grayBezel" image="CurtainOpen640" id="GN8-k9-NRK"/>
                 </imageView>
                 <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="g9Z-NL-ZI0">
-                    <rect key="frame" x="381" y="387" width="139" height="50"/>
+                    <rect key="frame" x="365" y="324" width="171" height="50"/>
                     <constraints>
-                        <constraint firstItem="xf0-cs-pfz" firstAttribute="trailing" secondItem="9aS-Vp-eQu" secondAttribute="trailing" id="e7t-dr-euJ"/>
-                        <constraint firstAttribute="width" constant="139" id="et4-Di-dcc"/>
+                        <constraint firstAttribute="trailing" secondItem="xf0-cs-pfz" secondAttribute="trailing" priority="750" id="4pv-hJ-AFf"/>
+                        <constraint firstItem="xf0-cs-pfz" firstAttribute="trailing" secondItem="LhJ-hh-Q7o" secondAttribute="trailing" priority="750" id="wcv-Js-fPu"/>
                     </constraints>
                     <rows>
                         <gridRow id="WJ0-m4-zcv"/>
@@ -33,7 +35,7 @@
                     </rows>
                     <columns>
                         <gridColumn width="75" id="IF7-xk-e3a"/>
-                        <gridColumn id="epx-Mt-FxM"/>
+                        <gridColumn width="90" id="epx-Mt-FxM"/>
                     </columns>
                     <gridCells>
                         <gridCell row="WJ0-m4-zcv" column="IF7-xk-e3a" id="6bB-3d-MDI">
@@ -47,7 +49,7 @@
                         </gridCell>
                         <gridCell row="WJ0-m4-zcv" column="epx-Mt-FxM" id="qSb-Op-uXu">
                             <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xf0-cs-pfz">
-                                <rect key="frame" x="81" y="28" width="58" height="22"/>
+                                <rect key="frame" x="81" y="28" width="90" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="reP-IL-DD8">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -65,14 +67,17 @@
                             </textField>
                         </gridCell>
                         <gridCell row="6JM-JS-v0H" column="epx-Mt-FxM" id="AFt-4b-lTj">
-                            <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9aS-Vp-eQu">
-                                <rect key="frame" x="81" y="0.0" width="58" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Hxs-8V-Rat">
+                            <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LhJ-hh-Q7o">
+                                <rect key="frame" x="81" y="0.0" width="90" height="22"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="oFg-v4-mQS">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
                         </gridCell>
                     </gridCells>
                 </gridView>
@@ -81,7 +86,7 @@
                 <constraint firstItem="ksx-e6-b99" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="7J7-az-oWz"/>
                 <constraint firstAttribute="trailing" secondItem="ksx-e6-b99" secondAttribute="trailing" id="Lx6-nt-y9p"/>
                 <constraint firstItem="g9Z-NL-ZI0" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="QtX-Id-a2q"/>
-                <constraint firstItem="g9Z-NL-ZI0" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" constant="-63" id="guU-tk-FD8"/>
+                <constraint firstItem="g9Z-NL-ZI0" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="guU-tk-FD8"/>
                 <constraint firstAttribute="bottom" secondItem="ksx-e6-b99" secondAttribute="bottom" id="lOP-05-RyY"/>
                 <constraint firstAttribute="top" secondItem="ksx-e6-b99" secondAttribute="top" id="sdL-t1-5Qg"/>
             </constraints>
