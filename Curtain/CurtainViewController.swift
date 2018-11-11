@@ -14,31 +14,15 @@ protocol curtainDelegate {
     func closeCurtain()
 }
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-    switch (lhs, rhs) {
-    case let (l?, r?):
-        return l < r
-    case (nil, _?):
-        return true
-    default:
-        return false
-    }
-}
-
-class CurtainViewController: NSViewController, curtainDelegate {
+final class CurtainViewController: NSViewController, curtainDelegate {
     
     var curtainsSound : AVAudioPlayer? = nil
     var curtainsOpenSound : AVAudioPlayer? = nil
-    
-    var delegate : mainDelegate?
-    
+       
     lazy var imageArray = [NSImage]()
     var playIndex = 0
     var playTotalTime : Double = 0
     var animTimer : Timer?
-    var remove = false
 
     @IBOutlet weak var imageView: NSImageView!
     
@@ -47,8 +31,7 @@ class CurtainViewController: NSViewController, curtainDelegate {
         
         super.viewDidLoad()
         
-//        curtainShound()
-//        openCurtainsSound()
+        openCurtainsSound()
         
         // Do any additional setup after loading the view.
     }
@@ -60,20 +43,16 @@ class CurtainViewController: NSViewController, curtainDelegate {
 
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = darkBackgroundColor.cgColor
-        
-        
     }
     
     /*Add Bottle On Counter Sound*/
-    func curtainShound(){
+    func curtainSound(){
         
-        let url = Bundle.main.url(forResource: "CURTAINS CLOSE_OPEN", withExtension: "wav")!
-        
+        let path = Bundle.main.path(forResource: "CURTAINS CLOSE_OPEN.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
         do {
             curtainsSound = try AVAudioPlayer(contentsOf: url)
-            guard let curtainsSound = curtainsSound else { return }
-            curtainsSound.setVolume(UserDefaults.standard.float(forKey: "fxVolume"), fadeDuration: 0)
-            
         } catch let error {
             print(error.localizedDescription)
         }
@@ -86,7 +65,6 @@ class CurtainViewController: NSViewController, curtainDelegate {
         
         do {
             curtainsOpenSound = try AVAudioPlayer(contentsOf: url)
-            curtainsOpenSound?.play()
         } catch {
             print(error.localizedDescription)
         }
@@ -94,14 +72,12 @@ class CurtainViewController: NSViewController, curtainDelegate {
     
     func openCurtain() {
         
-        remove = true
         readGifDataAndConfigImageView(name: "CurtainOpen640.gif")
         timer()
     }
     
     func closeCurtain() {
         
-        remove = false
         readGifDataAndConfigImageView(name: "CurtainClose640.gif")
         timer()
     }
@@ -112,9 +88,8 @@ class CurtainViewController: NSViewController, curtainDelegate {
         playIndex = 0
         playTotalTime = 0
         animTimer?.invalidate()
-        var delay = 0.0
         
-        guard let gifPath = Bundle.main.pathForImageResource(NSImage.Name.init(name))else{return}
+        guard let gifPath = Bundle.main.pathForImageResource( name ) else {return}
         guard let gifData = NSData(contentsOfFile: gifPath) else {return}
         
         guard let imageSourceRef = CGImageSourceCreateWithData(gifData, nil) else {return}
@@ -131,22 +106,17 @@ class CurtainViewController: NSViewController, curtainDelegate {
             let cfProperties =  CGImageSourceCopyPropertiesAtIndex(imageSourceRef, i, nil)
             let gifProperties: CFDictionary = unsafeBitCast(
                 CFDictionaryGetValue(cfProperties,
-                                     Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()),
-                to: CFDictionary.self)
+                                     Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()), to: CFDictionary.self)
             
             var delayObject: AnyObject = unsafeBitCast(
                 CFDictionaryGetValue(gifProperties,
-                                     Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()),
-                to: AnyObject.self)
+                                     Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()), to: AnyObject.self)
             if delayObject.doubleValue == 0 {
                 delayObject = unsafeBitCast(CFDictionaryGetValue(
                     gifProperties,
-                    Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()),
-                                            to: AnyObject.self)
+                    Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self)
             }
-            delay = delayObject as! Double
-            playTotalTime += delay
-            
+            playTotalTime += delayObject as! Double
         }
         
         imageView.image = imageArray.first
@@ -154,6 +124,9 @@ class CurtainViewController: NSViewController, curtainDelegate {
         self.imageView.canDrawSubviewsIntoLayer = true
         self.imageView.imageScaling = .scaleAxesIndependently
         self.imageView.frame = CGRect(x: 100.0, y: 100.0, width: self.view.frame.size.width / 10, height: self.view.frame.size.height / 10)
+        
+        curtainsOpenSound?.prepareToPlay()
+        curtainsOpenSound?.play()
     }
     
     func timer() {
@@ -168,10 +141,6 @@ class CurtainViewController: NSViewController, curtainDelegate {
         if playIndex == imageArray.count {
             animTimer!.invalidate()
             playIndex = 0
-            if remove == true {
-                delegate?.removeCurtain()
-            }
         }
-        curtainsOpenSound?.play()
     }
 }

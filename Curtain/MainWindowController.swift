@@ -6,22 +6,22 @@
 //  Copyright © 2018 thierryH24. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-protocol mainDelegate {
-    func removeCurtain()
-}
-
-class MainWindowController: NSWindowController, mainDelegate {
-    func removeCurtain() {
-        (curtainViewController?.view)!.removeFromSuperview()
-    }
+final class MainWindowController: NSWindowController {
     
     @IBOutlet weak var view: NSView!
     @IBOutlet weak var viewCurtain: NSView!
-    
+    @IBOutlet weak var myTableView:NSTableView!
+
     var delegate:curtainDelegate?
     var curtainViewController : CurtainViewController?
+    var secondaryView : NSView!
+    
+    let tableViewData = [["firstName":"John","lastName":"Doe","emailId":"john.doe@doe.com"],
+                         ["firstName":"Jane","lastName":"Doe","emailId":"jane.doe@doe.com"],
+                         ["firstName":"Peter","lastName":"Joe","emailId":"peter.joe@doe.com"]]
+
     
     override var windowNibName: NSNib.Name? {
         return NSNib.Name( "MainWindowController")
@@ -31,34 +31,47 @@ class MainWindowController: NSWindowController, mainDelegate {
         super.windowDidLoad()
         
         curtainViewController =  CurtainViewController()
-        curtainViewController?.delegate = self
-        _ = curtainViewController?.view
+        
+        // load view
+        secondaryView = curtainViewController?.view
         delegate = curtainViewController
         
+        self.myTableView.reloadData()
+
     }
     
     @IBAction func open(_ sender: Any) {
-        viewCurtain.addSubview((curtainViewController?.view)! )
-        setUpLayoutConstraints(item: (curtainViewController?.view)!, toItem: viewCurtain)
+        Commun.shared.addSubview(subView: secondaryView, toView: viewCurtain )
+        Commun.shared.setUpLayoutConstraints(item: secondaryView, toItem: viewCurtain)
         delegate?.openCurtain()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
+            self.secondaryView.removeFromSuperview()
+        }
     }
     
-    func setUpLayoutConstraints(item: NSView, toItem: NSView, left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0)
-    {
-        item.translatesAutoresizingMaskIntoConstraints = false
-        let sourceListLayoutConstraints = [
-            NSLayoutConstraint(item: item, attribute: .left, relatedBy: .equal, toItem: toItem, attribute: .left, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: item, attribute: .right, relatedBy: .equal, toItem: toItem, attribute: .right, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: item, attribute: .top, relatedBy: .equal, toItem: toItem, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: item, attribute: .bottom, relatedBy: .equal, toItem: toItem, attribute: .bottom, multiplier: 1, constant: 0)]
-        NSLayoutConstraint.activate(sourceListLayoutConstraints)
-    }
-
     @IBAction func close(_ sender: Any) {
-        let view = (curtainViewController?.view)!
-        viewCurtain.addSubview(view )
-        setUpLayoutConstraints(item: view, toItem: viewCurtain)
+        Commun.shared.addSubview(subView: secondaryView, toView: viewCurtain )
+        Commun.shared.setUpLayoutConstraints(item: secondaryView, toItem: viewCurtain)
         delegate?.closeCurtain()
     }
-
+    
 }
+
+extension MainWindowController:NSTableViewDataSource, NSTableViewDelegate{
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return tableViewData.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?{
+
+        let result  = tableView.makeView(withIdentifier: (tableColumn?.identifier)!, owner: self) as! NSTableCellView
+        
+        let id = (tableColumn?.identifier.rawValue)!
+        result.textField?.stringValue = tableViewData[row][id]!
+        return result
+    }
+    
+}
+
